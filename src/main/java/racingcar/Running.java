@@ -81,9 +81,28 @@ public class Running {
         System.out.print("최종 우승자 : ");
         if (winner.length == 1) System.out.println(winner[0]);
         else {
-            for (int i = 0; i < winner.length - 1; i++)
+            for (int i = 0; i < winner.length-1; i++)
                 System.out.print(winner[i] + ",");
         }
         System.out.println(winner[winner.length - 1]);
     } //우승자 출력
+
+    public void playGame() {
+
+        String[] carNames = newCars(); //자동차 이름 입력
+        int trialCount = trialCount(); // 시도횟수 입력
+        int[] carPositions = new int[carNames.length]; //자동차 현재 위치
+
+
+        for (int i = 0; i < trialCount; i++) { //시도 횟수 만큼 반복
+            carPositions = moveOrStop(carPositions); //
+            moveOrStopDisplay(carNames, carPositions);
+        }
+
+
+        int maxDistance = findMaxDistance(carPositions);
+        String[] winners = findWinners(carNames, carPositions, maxDistance);
+        printWinner(winners);
+    }
 }
+

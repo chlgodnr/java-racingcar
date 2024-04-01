@@ -30,12 +30,28 @@ public class Running {
         return count;
     } //시도 횟수
 
-    public int[] moveOrStop(String[] carName){
+    public int[] moveOrStop(String[] carName) {
         int[] carPosition = new int[carName.length];
-        for(int i=0; i<carPosition.length; i++) {
+        for (int i = 0; i < carPosition.length; i++) {
             int random = Randoms.pickNumberInRange(0, 9);
             if (random >= 4) carPosition[i]++;
         }
         return carPosition;
-    }
-} // 전진 or 정지 동작
+    } // 전진 or 정지 동작
+
+    public void carDisplay(String[] carName) {
+        int[] carPosition = new int[carName.length];
+        for(int i=0; i< carPosition.length; i++){
+            System.out.print(carName[i] + ":");
+        }
+    } //자동차 이름 출력
+    public void moveOrStopDisplay(String[] carName, int[] carPosition) {
+        carPosition = new int[carName.length];
+        for(int i=0; i<carPosition[i]; i++){
+            System.out.print("-");
+        }
+    } //자동차 이동상태
+
+
+
+}

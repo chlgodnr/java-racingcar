@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Running {
     public String[] newCars() {
@@ -27,14 +28,14 @@ public class Running {
             throw new IllegalArgumentException("숫자가 입력되어야 합니다.");
         }
         return count;
+    } //시도 횟수
+
+    public int[] moveOrStop(String[] carName){
+        int[] carPosition = new int[carName.length];
+        for(int i=0; i<carPosition.length; i++) {
+            int random = Randoms.pickNumberInRange(0, 9);
+            if (random >= 4) carPosition[i]++;
+        }
+        return carPosition;
     }
-} //시도 횟수
-
-
-
-
-
-
-
-
-
+} // 전진 or 정지 동작
